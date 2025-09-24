@@ -1,4 +1,4 @@
-package com.example.aula0309;
+package com.example.exerciciosofc;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,9 +7,6 @@ import android.widget.EditText;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.IMCResultado;
-import com.example.exerciciosofc.R;
 
 public class MainActivity extends AppCompatActivity {
     Button b;
