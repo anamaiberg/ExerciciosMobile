@@ -3,18 +3,14 @@ o gerenciamento de memória em um aplicativo Android, especialmente em cenários
 rotacionamento de tela. Como os métodos onSaveInstanceState() e onRestoreInstanceState() podem ser usados 
 para garantir que dados cruciais não sejam perdidos, e como isso se relaciona com o conceito de "State Restoration" em sistemas móveis?
 
-O ciclo de vida de uma Activity consiste em gerenciar a atividade desde seu nascimento até sua morte. São utilizados os comandos OnCreate(), 
-OnStart(), OnPause(), OnResume(), OnEnd() e OnDestroy(). É através desses comandos que é possível controlar múltiplas atividades e dizer
-que se algo acontecer, outra activiy vai entrar em cena ou outra forma da mesma activity. 
-O "State Restoration" fala sobre restaurar o estado de uma atividade, nesse caso, ao usar os métodos onSaveInstanceState() e onRestoreInstanceState(),
-é possível garantir que, se tenho uma informação digitada na minha tela, ao rotacionar a mesma os dados continuarão ali,
-já os estados das instâncias da atividade foram salvos e restaurados.
-
+O ciclo de vida de uma Activity define como uma tela do Android nasce, aparece, pausa e é encerrada, passando por métodos como onCreate(), onStart(), onResume(), onPause(), onStop() e onDestroy(). Esse controle é importante para desempenho e memória, pois o sistema pode destruir telas em segundo plano ou recriá-las em situações como a rotação de tela. Para evitar perda de informações, utilizam-se onSaveInstanceState() para salvar dados antes da destruição e onRestoreInstanceState() para recuperá-los, garantindo a chamada State Restoration, que mantém a experiência do usuário contínua.
 
 2)Explique os principais artefatos disponíveis em um projeto Android como manifesto, res , R, Activitys.
 
-Manifesto: É onde são ficam todas as declarações base de um app. É um arquivo xml que consta características da aplicação, atividades,
-intenções e fragmentos.
-Res: É a rota de recursos da aplicação, onde ficam imagens, layouts, configurações de linguagem, etc.
-R: Já vem na criação da atividade, é uma clase java usada para lovcalizar e integrar atributos de diferentes atividades.
-Activities: É o que um usuário regular chamaria de tela. Existem vários modelos de activities e é com ela que o usuário interage.
+Manifesto: arquivo que descreve as informações principais do app, como permissões, quais telas existem e qual deve abrir primeiro.
+
+Res (resources): pasta onde ficam os recursos da aplicação, como layouts, imagens, textos e cores.
+
+R: classe gerada automaticamente que conecta o código às pastas de recursos.
+
+Activities: são as telas do app, os pontos principais de interação com o usuário.
