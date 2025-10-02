@@ -3,7 +3,8 @@ o gerenciamento de memória em um aplicativo Android, especialmente em cenários
 rotacionamento de tela. Como os métodos onSaveInstanceState() e onRestoreInstanceState() podem ser usados 
 para garantir que dados cruciais não sejam perdidos, e como isso se relaciona com o conceito de "State Restoration" em sistemas móveis?
 
-O ciclo de vida de uma Activity define como uma tela do Android nasce, aparece, pausa e é encerrada, passando por métodos como onCreate(), onStart(), onResume(), onPause(), onStop() e onDestroy(). Esse controle é importante para desempenho e memória, pois o sistema pode destruir telas em segundo plano ou recriá-las em situações como a rotação de tela. Para evitar perda de informações, utilizam-se onSaveInstanceState() para salvar dados antes da destruição e onRestoreInstanceState() para recuperá-los, garantindo a chamada State Restoration, que mantém a experiência do usuário contínua.
+O ciclo de vida de uma Activity define como uma tela do Android nasce, aparece, pausa e é encerrada, passando por métodos como onCreate(), onStart(), onResume(), onPause(), onStop() e onDestroy(). 
+Esse controle é importante para desempenho e memória, pois o sistema pode destruir telas em segundo plano ou recriá-las em situações como a rotação de tela. Para evitar perda de informações, utilizam-se onSaveInstanceState() para salvar dados antes da destruição e onRestoreInstanceState() para recuperá-los, garantindo a chamada State Restoration, que mantém a experiência do usuário contínua.
 
 2)Explique os principais artefatos disponíveis em um projeto Android como manifesto, res , R, Activitys.
 
