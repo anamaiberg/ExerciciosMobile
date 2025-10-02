@@ -18,12 +18,21 @@
         android:textSize="20dp" />
 
     <EditText
+        android:id="@+id/edNome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:ems="10"
+        android:hint="Nome"
+        android:inputType="text" />
+
+    <EditText
         android:id="@+id/edPeso"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:ems="10"
-        android:hint="Peso"
+        android:hint="Peso (em kg)"
         android:inputType="numberDecimal" />
 
     <EditText
@@ -32,7 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:ems="10"
-        android:hint="Altura"
+        android:hint="Altura (em m)"
         android:inputType="numberDecimal" />
 
     <Button
@@ -44,8 +53,8 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="364dp"
+        android:layout_height="272dp"
         android:layout_weight="1"
         android:src="@drawable/perfil" />
 
