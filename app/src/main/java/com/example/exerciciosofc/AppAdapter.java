@@ -44,6 +44,7 @@ public class AppAdapter extends ArrayAdapter<ApplicationInfo> {
             Intent intent = pm.getLaunchIntentForPackage(app.packageName);
             if(intent != null)
                 context.startActivity(intent);
+
         });
 
         return convertView;

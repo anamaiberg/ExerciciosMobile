@@ -1,7 +1,9 @@
 package com.example.exerciciosofc;
 
+import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,6 +25,14 @@ public class MainActivity extends AppCompatActivity {
         listView = findViewById(R.id.listView);
         pm = getPackageManager(); // Recupera gerenciador de pacotes
         apps = pm.getInstalledApplications(PackageManager.GET_META_DATA);
+
+        List<ApplicationInfo> apps = new ArrayList<>();
+        Intent iquery = new Intent(Intent.ACTION_MAIN, null);
+        iquery.addCategory(Intent.CATEGORY_LAUNCHER);
+        List<ResolveInfo> listresolveinfo = pm.queryIntentActivities(iquery, PackageManager.GET_META_DATA);
+        for(ResolveInfo resolveInfo : listresolveinfo){
+            apps.add(resolveInfo.activityInfo.applicationInfo);
+        }
 
         adapter = new AppAdapter(this, apps, pm);
         listView.setAdapter(adapter);
