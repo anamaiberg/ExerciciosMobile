@@ -1,40 +1,24 @@
 package com.example.exerciciosofc;
 
-import android.content.Intent;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
+import android.location.LocationManager;
 import android.os.Bundle;
-import android.widget.ListView;
+
+import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import java.util.ArrayList;
-import java.util.List;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
-
-    PackageManager pm;
-    ListView listView;
-    List<ApplicationInfo> apps;
-    AppAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-
-        listView = findViewById(R.id.listView);
-        pm = getPackageManager(); // Recupera gerenciador de pacotes
-        apps = pm.getInstalledApplications(PackageManager.GET_META_DATA);
-
-        List<ApplicationInfo> apps = new ArrayList<>();
-        Intent iquery = new Intent(Intent.ACTION_MAIN, null);
-        iquery.addCategory(Intent.CATEGORY_LAUNCHER);
-        List<ResolveInfo> listresolveinfo = pm.queryIntentActivities(iquery, PackageManager.GET_META_DATA);
-        for(ResolveInfo resolveInfo : listresolveinfo){
-            apps.add(resolveInfo.activityInfo.applicationInfo);
-        }
-
-        adapter = new AppAdapter(this, apps, pm);
-        listView.setAdapter(adapter);
     }
 }
+
+
