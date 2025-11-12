@@ -70,9 +70,5 @@ public class MainActivity extends AppCompatActivity {
 
         btnClear.setOnClickListener(v -> simplePaint.clearCanvas());
 
-        btnClear.setOnLongClickListener(v -> {
-            simplePaint.saveDrawing(this);
-            return true;
-        });
     }
 }
