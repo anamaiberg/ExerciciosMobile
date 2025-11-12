@@ -35,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
         db = openOrCreateDatabase("minhasnotinhas", MODE_PRIVATE, null);
         db.execSQL("CREATE TABLE IF NOT EXISTS notas (id INTEGER PRIMARY KEY AUTOINCREMENT, txt TEXT)");
 
-        // botão inserir
         buttonInsere.setOnClickListener(v -> {
             String txt = editText.getText().toString().trim();
             if (!txt.isEmpty()) {
@@ -45,7 +44,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // botão atualizar
         buttonAtualiza.setOnClickListener(v -> {
             if (notaSelecionada != null) {
                 String novoTxt = editText.getText().toString().trim();
@@ -63,7 +61,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // clique curto: editar
         listView.setOnItemClickListener((adapterView, view, position, id) -> {
             notaSelecionada = (Nota) adapterView.getItemAtPosition(position);
             editText.setText(notaSelecionada.txt);
