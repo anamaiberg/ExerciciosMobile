@@ -1,40 +1,37 @@
 package com.example.exerciciosofc;
 
-import android.content.Intent;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
+
+import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
 import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-
-    PackageManager pm;
     ListView listView;
-    List<ApplicationInfo> apps;
-    AppAdapter adapter;
+    ArrayList<String> nomes;
+    PlanetaController planetaController;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        listView = findViewById(R.id.listView);
-        pm = getPackageManager(); // Recupera gerenciador de pacotes
-        apps = pm.getInstalledApplications(PackageManager.GET_META_DATA);
-
-        List<ApplicationInfo> apps = new ArrayList<>();
-        Intent iquery = new Intent(Intent.ACTION_MAIN, null);
-        iquery.addCategory(Intent.CATEGORY_LAUNCHER);
-        List<ResolveInfo> listresolveinfo = pm.queryIntentActivities(iquery, PackageManager.GET_META_DATA);
-        for(ResolveInfo resolveInfo : listresolveinfo){
-            apps.add(resolveInfo.activityInfo.applicationInfo);
-        }
-
-        adapter = new AppAdapter(this, apps, pm);
-        listView.setAdapter(adapter);
+        listView =findViewById(R.id.listView); //Associando view a variavel local listView
+        planetaController = new PlanetaController();
+        PlanetaAdapter adapter = new PlanetaAdapter(this,
+                R.layout.item_lista,
+                planetaController.getPlaneta());
+        listView.setAdapter(adapter);//Definindo adapter para a listView
     }
 }
