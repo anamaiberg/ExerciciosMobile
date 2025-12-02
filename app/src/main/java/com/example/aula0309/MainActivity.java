@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
             min = Integer.parseInt(editTextMin.getText().toString());
             max = Integer.parseInt(editTextMax.getText().toString());
 
-            int delta = max-min;
+            int delta = max-min+1;
             int sorteado = random.nextInt(delta)+min;
             tv.setText(Integer.toString(sorteado));
         });
